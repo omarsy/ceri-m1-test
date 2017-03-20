@@ -4,7 +4,7 @@ machine:
 
 test:
 	override:
-		-mvn integration test
+		- mvn integration test
 general:
 	branches:
 		only:
