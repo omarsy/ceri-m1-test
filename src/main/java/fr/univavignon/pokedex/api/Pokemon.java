@@ -80,4 +80,22 @@ public final class Pokemon extends PokemonMetadata {
 		return iv;
 	}
 	
+	
+	@Override
+	public boolean equals(Object object)
+	{
+		Pokemon pokemon = (Pokemon) object;
+		
+		if(pokemon.candy == this.candy 
+				&& pokemon.cp == this.cp 
+				&& pokemon.dust == this.dust 
+				&& pokemon.hp == this.hp 
+				&& pokemon.iv == this.iv 
+				&& super.equals(pokemon))
+		{
+				return true;
+		}
+			
+		return false;
+	}
 }

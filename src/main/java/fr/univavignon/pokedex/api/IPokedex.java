@@ -53,3 +53,4 @@ public interface IPokedex extends IPokemonMetadataProvider, IPokemonFactory {
 	List<Pokemon> getPokemons(Comparator<Pokemon> order);
 	
 }
+	
