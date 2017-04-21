@@ -13,7 +13,7 @@ test:
   override:
     - mvn integration-test
     - mvn jacoco:report
-    - mvn com.gavinmogan:codacy-maven-plugin:coverage -DcoverageReportFile=target/site/jacoco/jacoco.xml -DprojectToken=$projectToken -DapiToken=$apiToken
+    - mvn com.gavinmogan:codacy-maven-plugin:coverage -DcoverageReportFile=target/site/jacoco/jacoco.xml -DprojectToken=65c41b8251937cbc2f12d8a57d59f4347c68624b -DapiToken=8247828e40a52d137fd1a16a3051fffaac7a8f37
 
 
 general:
