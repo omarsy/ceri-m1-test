@@ -127,13 +127,10 @@ public class Pokedex implements IPokedex,Serializable {
 		if(poke != null && this.size()  == pokedex.size() )
 		{
 			for( ; i < this.size() ; i++)
-				try {
-					if(!this.getPokemon(i).equals(pokedex.getPokemon(i)))
+					if(!this.getPokemons().get(i).equals(pokedex.getPokemons().get(i)))
 						break;
-				} catch (PokedexException e) {
-					// TODO Auto-generated catch block
-					break;
-				}
+
+
 		}
 		
 				return i == this.size();
