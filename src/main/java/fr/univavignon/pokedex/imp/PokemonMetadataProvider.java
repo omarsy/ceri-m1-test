@@ -1,6 +1,7 @@
-package fr.univavignon.pokedex.api.imp;
+package fr.univavignon.pokedex.imp;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -10,8 +11,12 @@ import org.apache.commons.io.IOUtils;
 import fr.univavignon.pokedex.api.IPokemonMetadataProvider;
 import fr.univavignon.pokedex.api.PokedexException;
 import fr.univavignon.pokedex.api.PokemonMetadata;
-public class PokemonMetadataProvider implements IPokemonMetadataProvider {
+public class PokemonMetadataProvider implements IPokemonMetadataProvider,Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static PokemonMetadataProvider instance ;
 	private List<PokemonMetadata> pokemonMetadatas;
 	private static final String URL ="https://raw.githubusercontent.com/PokemonGo-Enhanced/node-pokemongo-data/master/data.json";

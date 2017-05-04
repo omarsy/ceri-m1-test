@@ -2,6 +2,7 @@ package fr.univavignon.pokedex.api;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,7 @@ import org.mockito.MockitoAnnotations;
 
 public  class IPokedexTest {
 	@Mock 
-	private IPokedex pokedex;
+	protected IPokedex pokedex;
 	/**
 	 * 
 	 */
@@ -51,7 +52,7 @@ public  class IPokedexTest {
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@Before 
-	public void setUp() throws PokedexException { 
+	public void setUp() throws PokedexException, IOException, Exception { 
 		MockitoAnnotations.initMocks(this);
 		size = 7;
 		List<Pokemon> pokemons = PokemonTestFactory.genererPokemons(size);

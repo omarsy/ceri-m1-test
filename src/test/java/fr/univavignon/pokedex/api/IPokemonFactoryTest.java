@@ -1,7 +1,6 @@
 package fr.univavignon.pokedex.api;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -18,7 +17,7 @@ public class IPokemonFactoryTest {
 	protected int dust;
 	protected int candy;
 	@Before 
-	public void setUp() { 
+	public void setUp() throws Exception { 
 		MockitoAnnotations.initMocks(this);
 		this.pokemon = PokemonTestFactory.genererPokemons(1).get(0);
 		this.index = 0;
@@ -28,14 +27,18 @@ public class IPokemonFactoryTest {
 		this.candy = 1;
 		
 		Mockito.when(pokemonfactory.createPokemon(index, cp, hp, dust, candy)).thenReturn(pokemon);
-	
+		Mockito.when(pokemonfactory.createPokemon(-1, cp, hp, dust, candy)).thenThrow(new Exception());
 	
 	} 
 	@Test
-	public void testCreate()
+	public void testCreate() throws Exception
 	{
 		assertEquals(this.pokemonfactory.createPokemon(index, cp, hp, dust, candy),this.pokemon);
 	}
-
+	@Test(expected=Exception.class)
+	public void TestErreur() throws Exception
+	{
+		this.pokemonfactory.createPokemon(-1, cp, hp, dust, candy);
+	}
 }
 

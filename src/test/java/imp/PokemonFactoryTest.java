@@ -3,7 +3,7 @@ package imp;
 import org.junit.Before;
 import fr.univavignon.pokedex.api.IPokemonFactoryTest;
 import fr.univavignon.pokedex.api.Pokemon;
-import fr.univavignon.pokedex.api.imp.PokemonFactory;
+import fr.univavignon.pokedex.imp.PokemonFactory;
 
 public class PokemonFactoryTest extends IPokemonFactoryTest  {
 	@Before 

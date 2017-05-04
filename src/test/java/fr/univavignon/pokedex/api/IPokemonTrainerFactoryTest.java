@@ -1,7 +1,6 @@
  package fr.univavignon.pokedex.api;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -22,20 +21,24 @@ public class IPokemonTrainerFactoryTest
 	protected IPokedexFactory pokedexFactory;
 
 	@Before 
-	public void setUp() 
+	public void setUp() throws Exception 
 	{ 
 		MockitoAnnotations.initMocks(this);
 		this.name = "omar";
 		this.team = Team.INSTINCT;
 		Mockito.when(this.pokemonTrainerFactory.createTrainer(name, team, pokedexFactory)).thenReturn(pokemonTrainer);
-	
+		Mockito.when(this.pokemonTrainerFactory.createTrainer(name, team, null)).thenThrow(new Exception());
 	}
 	
 	@Test()
-	public void testCreate()
+	public void testCreate() throws Exception
 	{
 		assertEquals(this.pokemonTrainerFactory.createTrainer(name, team, pokedexFactory),this.pokemonTrainer);
 	}
 
-
+	@Test(expected=Exception.class)
+	public void TestErreur() throws Exception
+	{
+		this.pokemonTrainerFactory.createTrainer(name, team, null);
+	}
 }

@@ -1,6 +1,8 @@
 package fr.univavignon.pokedex.api;
 
 import static org.junit.Assert.assertEquals;
+
+import java.io.IOException;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +19,7 @@ public class IPokedexFactoryTest {
 	@Mock
 	protected IPokedex pokedex;
 	@Before 
-	public void setUp() {
+	public void setUp() throws IOException {
 		MockitoAnnotations.initMocks(this);
 		List<Pokemon> pokemons = PokemonTestFactory.genererPokemons(7);
 		Mockito.when(pokedexfactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(pokedex);

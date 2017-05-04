@@ -43,5 +43,10 @@ public class PokemonTrainer {
 	public IPokedex getPokedex() {
 		return pokedex;
 	}
-	
+	@Override
+	public boolean equals(Object object)
+	{
+		PokemonTrainer pok = (PokemonTrainer)object;
+		return this.getName() == pok.getName() && this.getTeam() == pok.getTeam() && this.getPokedex().equals(pok.getPokedex());
+	}
 }
