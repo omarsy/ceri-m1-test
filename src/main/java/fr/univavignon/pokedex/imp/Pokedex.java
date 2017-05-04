@@ -123,20 +123,19 @@ public class Pokedex implements IPokedex,Serializable {
 	public boolean equals(Object poke)
 	{
 		Pokedex pokedex  = (Pokedex)poke;
+		int i = 0;
 		if(poke != null && this.size()  == pokedex.size() )
 		{
-			for(int i = 0 ; i < this.size() ; i++)
+			for( ; i < this.size() ; i++)
 				try {
 					if(!this.getPokemon(i).equals(pokedex.getPokemon(i)))
-						return false;
+						break;
 				} catch (PokedexException e) {
 					// TODO Auto-generated catch block
-					return false;
+					break;
 				}
 		}
-		else {
-			return false;
-		}
-				return true;
+		
+				return i == this.size();
 	}
 }
