@@ -125,14 +125,8 @@ public class Pokedex implements IPokedex,Serializable {
 		Pokedex pokedex  = (Pokedex)poke;
 		int i = 0;
 		if(poke != null && this.size()  == pokedex.size() )
-		{
-			for( ; i < this.size() ; i++)
-					if(!this.getPokemons().get(i).equals(pokedex.getPokemons().get(i)))
-						break;
-
-
-		}
+			for( ; i < this.size() && this.getPokemons().get(i).equals(pokedex.getPokemons().get(i)) ; i++);
 		
-				return i == this.size();
+		return i == this.size();
 	}
 }
