@@ -36,7 +36,7 @@ public class IPokemonFactoryTest {
 		assertEquals(this.pokemonfactory.createPokemon(index, cp, hp, dust, candy),this.pokemon);
 	}
 	@Test(expected=Exception.class)
-	public void TestErreur() throws Exception
+	public void testErreur() throws Exception
 	{
 		this.pokemonfactory.createPokemon(-1, cp, hp, dust, candy);
 	}

@@ -86,12 +86,11 @@ public class Pokedex implements IPokedex,Serializable {
 						pos++;
 					}
 					else
-						if(valcomp == 0)
+						if(valcomp == 0 && i > j)
 						{
-							if(i > j)
-							{
+							
 								pos++;
-							}
+							
 						}
 				}
 			}

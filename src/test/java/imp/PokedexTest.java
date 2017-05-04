@@ -54,6 +54,6 @@ public class PokedexTest extends IPokedexTest{
 	 
 	 @Test(expected=Exception.class)   
 	 public void testSaveErreur() throws Exception {     
-		  Pokedex.save((Pokedex)this.pokedex,"xxx&é_ç-_èèàèà)^^$ù*;:,,");
+		  Pokedex.save((Pokedex)this.pokedex,null);
 		 }
 }

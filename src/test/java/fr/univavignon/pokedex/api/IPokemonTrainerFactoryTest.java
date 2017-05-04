@@ -37,7 +37,7 @@ public class IPokemonTrainerFactoryTest
 	}
 
 	@Test(expected=Exception.class)
-	public void TestErreur() throws Exception
+	public void testErreur() throws Exception
 	{
 		this.pokemonTrainerFactory.createTrainer(name, team, null);
 	}
