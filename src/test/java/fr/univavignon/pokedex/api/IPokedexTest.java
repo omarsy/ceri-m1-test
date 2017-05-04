@@ -47,8 +47,10 @@ public  class IPokedexTest {
 	 */
 	protected List<Pokemon> pokemonsComparatorsCp;
 	
+	protected int idGetPokemonMetadata;
 	
-	
+	protected PokemonMetadata valGetPokemonMetadata;
+	protected Pokemon pokemonVerCreer;
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@Before 
@@ -62,6 +64,8 @@ public  class IPokedexTest {
 		this.pokemonsComparatorsName = pokemons;
 		this.pokemonsGetAll = pokemons;
 		this.pokemonsGetIdTeste = new HashMap<Integer,Pokemon>();
+		this.idGetPokemonMetadata = 2;
+		
 		for(int i = 0 ; i < size ; i++)
 		{
 			Pokemon pokemon = pokemons.get(i);
@@ -70,10 +74,14 @@ public  class IPokedexTest {
 			Mockito.when(pokedex.getPokemon(i)).thenReturn(pokemon);
 			
 		}
+		this.pokemonVerCreer = pokemons.get(0);
+		this.valGetPokemonMetadata = pokemons.get(this.idGetPokemonMetadata);
 		Mockito.when(pokedex.getPokemons(PokemonComparators.CP)).thenReturn(pokemons);
 		Mockito.when(pokedex.getPokemons(PokemonComparators.INDEX)).thenReturn(pokemons);
 		Mockito.when(pokedex.getPokemons(PokemonComparators.NAME)).thenReturn(pokemons);
 		Mockito.when(pokedex.getPokemons()).thenReturn(pokemons);
+		Mockito.when(pokedex.createPokemon(this.pokemonVerCreer.getIndex(), this.pokemonVerCreer.getCp(), this.pokemonVerCreer.getHp(), this.pokemonVerCreer.getDust(), this.pokemonVerCreer.getCandy())).thenReturn(this.pokemonVerCreer);
+		Mockito.when(pokedex.getPokemonMetadata(this.idGetPokemonMetadata)).thenReturn(this.valGetPokemonMetadata);
 	
 	} 
 	
@@ -122,6 +130,16 @@ public  class IPokedexTest {
 			assertEquals(this.pokemonsComparatorsIndex.get(i),pokemons.get(i));
 	}
 	
+	@Test
+	public void testGetPokemonMetadata() throws PokedexException
+	{
+		assertEquals(this.pokedex.getPokemonMetadata(this.idGetPokemonMetadata),this.valGetPokemonMetadata);
+	}
+	@Test
+	public void testCreatePokemon() throws Exception
+	{
+		assertEquals(this.pokedex.createPokemon(this.pokemonVerCreer.getIndex(), this.pokemonVerCreer.getCp(), this.pokemonVerCreer.getHp(), this.pokemonVerCreer.getDust(), this.pokemonVerCreer.getCandy()),this.pokemonVerCreer);
+	}
 	@Test
 	public void testGetPokemonsComparatorCp()
 	{

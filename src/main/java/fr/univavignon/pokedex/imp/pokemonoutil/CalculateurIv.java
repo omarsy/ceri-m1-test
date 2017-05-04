@@ -18,16 +18,7 @@ public class CalculateurIv {
 	        driver.findElement(By.xpath("//*[@id=\"search_dust\"]")).sendKeys(String.valueOf(dust));
 	        driver.findElement(By.xpath("//*[@id=\"calculatebtn\"]")).click();
 	      
-	        while(driver.findElement(By.xpath("//*[@id=\"possibleCombinationsStringmax\"]//b")) == null)
-	        {
-	        	try {
-	        
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-	        }
+	        while(driver.findElement(By.xpath("//*[@id=\"possibleCombinationsStringmax\"]//b")) == null);
 	        String resultat = driver.findElement(By.xpath("//*[@id=\"possibleCombinationsStringmax\"]//b")).getText();
 	        driver.quit();
 	        return Float.parseFloat(resultat.replace("%", ""));

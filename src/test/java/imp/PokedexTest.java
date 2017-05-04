@@ -36,7 +36,9 @@ public class PokedexTest extends IPokedexTest{
 		this.pokemonsComparatorsIndex = pokemons;
 		this.pokemonsComparatorsName = pokemons;
 		this.pokemonsGetAll = pokemons;
-		
+		this.idGetPokemonMetadata = 0;
+		this.valGetPokemonMetadata = PokemonMetadataProvider.getInstance().getPokemonMetadata(this.idGetPokemonMetadata);
+		this.pokemonVerCreer = this.pokedex.getPokemon(0);
 	}
 	@Test
 	public void saveAndCharge() throws Exception
